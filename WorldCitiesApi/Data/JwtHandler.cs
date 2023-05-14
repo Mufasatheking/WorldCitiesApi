@@ -25,8 +25,7 @@ namespace WorldCitiesApi.Data
                 issuer: _configuration["JwtSettings:Issuer"],
                 audience: _configuration["JwtSettings:Audience"],
                 claims: await GetClaimsAsync(user),
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(
-                    _configuration["JwtSettings:ExpirationTimeInMinutes"])),
+                expires: DateTime.Now.AddMinutes(Convert.ToDouble(30)),
                 signingCredentials: GetSigningCredentials());
             return jwtOptions;
         }
